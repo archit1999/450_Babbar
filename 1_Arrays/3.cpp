@@ -6,7 +6,7 @@
 #include <list>
 #include <utility>
 
-#define fast                sync_with_stdio(false); cin.tie(null); cout.tie(null);
+#define fast                sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
 
@@ -76,6 +76,6 @@ int main(){
     int n = 12;
     vector<int> arr {17, 2, 12, 4, 9, 3, 1, 7, 14, 21, 42, 5};
 
-    quickSearch(arr,0, n, 3);
+    cout << quickSearch(arr,0, n, 7) << endl;
     return 0;
 }

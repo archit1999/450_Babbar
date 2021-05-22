@@ -5,14 +5,14 @@
 #include <algorithm>
 #include <list>
 
-#define fast                sync_with_stdio(false); cin.tie(null); cout.tie(null);
+#define fast                ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
 
 // Reverse the array
 
 void print(const vector<int> a){
-    for (int i=0 ; i<a.size() ; i++)    cout << a[i] << endl;
+    for (int i=0 ; i<a.size() ; i++)    cout << a[i] << " ";
     cout << endl;
 }
 

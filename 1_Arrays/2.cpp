@@ -6,7 +6,7 @@
 #include <list>
 #include <utility>
 
-#define fast                sync_with_stdio(false); cin.tie(null); cout.tie(null);
+#define fast                sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
 
