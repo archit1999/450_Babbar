@@ -5,66 +5,43 @@
 #include <list>
 #include <utility>
 
-#define fast                sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
 
-// spiral traversal of matrix
+// transpose of a matrix
 
-void print(vector<int> a){
-    for (int i=0 ; i<a.size() ;i++)    cout << a[i] << " ";
+void print(vector<vector<int>> a){
+    for (int i=0 ; i<a.size() ;i++){
+        for (int j=0 ;j<a[0].size() ;j++){
+            cout << a[i][j] << " ";
+        }
+        cout << endl;
+    }
     cout << endl;
 }
 
-vector<int> spirallyTraverse(int rows, int cols, vector<vector<int>> a){
-    vector<int> ans(rows*cols);   int a_index = 0;
-
-    for (int i=0 ; i < rows/2 && i < cols/2 ;i++){        // layer's loop
-
-        // 1st row of this layer
-        for (int j=i; j < cols - i ;j++)          
-            ans[a_index++] = a[i][j]; 
-
-        // last col for this layer
-        for (int j = i+1; j< rows - i;j++){
-            ans[a_index++] =  a[j][cols - i - 1] ;
-        }
-
-        // last row of this layer
-        for(int j = cols - i -2 ; j >= i ; j--){
-            ans[a_index++] =  a[rows - i - 1][j] ;
-        }
-
-        // first col of this layer
-        for (int j=rows-i-2 ; j>i ;j--){
-            ans[a_index++] = a[j][i];
+void transpose(vector<vector<int>> &a, int n){
+    for (int i=0 ; i<n ;i++){
+        for(int j=i+1 ; j<n ;j++){
+            swap(a[i][j], a[j][i]);
         }
     }
-
-    if (rows < cols && rows%2 == 1){
-        for(int i= rows/2 ; i < cols - rows/2 ;i++){
-            ans[a_index++] = a[rows/2][i];
-        }
-    }
-    if (cols <= rows && cols %2 == 1){
-        for (int i=cols/2 ; i < rows - cols/2 ;i++){
-            ans[a_index++] =  a[i][cols/2];
-        }
-    }
-    return ans;
 }
 
 int main(){
-    int rows = 5, cols = 3;
 
-    vector<vector<int>> a { {1, 2, 3},
-                            {5, 6, 7 },
-                            {9, 10, 11},
-                            {40, 41, 42},
-                            {43, 44 , 45}};
+    // int n;          cin >> n;
+    // vector<vector<int>> a(n, vector<int>(n));
+    // for (int i=0 ;i<n ;i++) for(int j=0 ;j<n ;j++)      cin >> a[i][j];
 
-    
-    vector<int> ans = spirallyTraverse(rows, cols, a);
-    print(ans);
-    return 0;
+    // uncomment above part to take input & also comment below part
+
+    int n = 4; 
+    vector<vector<int>> a { {1, 2, 3, 4},
+                            {5, 6, 7, 8},
+                            {9, 10, 11, 12},
+                            {13, 14, 15, 16} };
+
+    transpose(a, n);
+    print(a);
 }
